@@ -1,6 +1,26 @@
 <script>
   import data from "./data/data.json";
-  console.log(data);
+  // --------------------------------------------------------------------------------------
+  // Imports 
+  // --------------------------------------------------------------------------------------
+  
+  // data
+  import milk_cpi from "./data/milk_cpi.json";
+  console.log(milk_cpi);
+
+  // libraries
+  import { scaleLinear, scaleTime } from "d3-scale";
+
+  // bespoke components
+  import Line from "./lib/Line.svelte";
+  import AxisX from "./lib/AxisX.svelte";
+  import AxisY from "./lib/AxisY.svelte";
+  import HoverEvents from "./lib/HoverEvents.svelte";
+  import Tooltip from "./lib/Tooltip.svelte";
+
+  // --------------------------------------------------------------------------------------
+  // Set up the structure of the plot 
+  // --------------------------------------------------------------------------------------
 
   const margin = { top: 30, right: 50, bottom: 30, left: 40 };
 
@@ -10,8 +30,7 @@
   let innerHeight = height - margin.top - margin.bottom;
   $: innerWidth = width - margin.left - margin.right;
 
-  import { scaleLinear, scaleTime } from "d3-scale";
-  import Line from "./lib/Line.svelte";
+
 
   const yScale = scaleLinear()
     .domain([0, 100]) // INPUT
@@ -27,10 +46,7 @@
   const BIDEN_COLOR = "#5768ac";
   const TRUMP_COLOR = "#fa5a50";
 
-  import AxisX from "./lib/AxisX.svelte";
-  import AxisY from "./lib/AxisY.svelte";
-  import HoverEvents from "./lib/HoverEvents.svelte";
-  import Tooltip from "./lib/Tooltip.svelte";
+
 
   let hoveredDate = maxDate;
 </script>
