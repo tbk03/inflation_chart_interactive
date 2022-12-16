@@ -24,20 +24,30 @@
 
   const margin = { top: 30, right: 50, bottom: 30, left: 40 };
 
-  let height = 400;
+  let height = 600;
   let width = 400;
 
   let innerHeight = height - margin.top - margin.bottom;
   $: innerWidth = width - margin.left - margin.right;
 
+  // --------------------------------------------------------------------------------------
+  // Accessors
+  // --------------------------------------------------------------------------------------
 
+  let xAccessor = (d) => d.date;
+  let yAccessor = (d) => d.cpi;
+  let milkPriceAccessor = (d) => d.price_pence;
+
+  // --------------------------------------------------------------------------------------
+  // Scales
+  // --------------------------------------------------------------------------------------
 
   const yScale = scaleLinear()
     .domain([0, 100]) // INPUT
     .range([innerHeight, 0]); // OUTPUT
 
-  const minDate = new Date(data.Biden[0].date);
-  const maxDate = new Date(data.Biden[data.Biden.length - 1].date);
+  const minDate = new Date(xAccessor(milk_cpi[0]));
+  const maxDate = new Date(xAccessor(milk_cpi[milk_cpi.length - 1]));
 
   $: xScale = scaleTime()
     .domain([minDate, maxDate]) // INPUT
