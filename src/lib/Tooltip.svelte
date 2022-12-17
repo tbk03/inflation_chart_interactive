@@ -1,4 +1,7 @@
 <script>
+    // bespoke components
+    import MilkBottle from "./MilkBottle.svelte";
+
     export let xScale;
     export let yScale;
     export let hoveredDate;
@@ -6,9 +9,18 @@
     export let color;
 
     const getYValue = (date) =>
-        data.filter((d) => new Date(d.date) >= date)[0]?.winprob;
+        data.filter((d) => new Date(d.date) >= date)[0]?.cpi;
+
+    const getMilkPrice = (date) =>
+        data.filter((d) => new Date(d.date) >= date)[0]?.price_pence;
+
+    // format data for presentation in tooltip
+    function oneDecimalPlace(x) {
+        return Number.parseFloat(x).toFixed(1);
+    }
 </script>
 
+<!-- CPI TOOL TIP - MAIN PLOT -->
 <circle
     cx={xScale(hoveredDate)}
     cy={yScale(getYValue(hoveredDate))}
@@ -27,11 +39,42 @@
     stroke-width="5"
     paint-order="stroke"
 >
-    {Math.round(getYValue(hoveredDate))}
+    <!-- {getYValue(hoveredDate)} -->
+    {oneDecimalPlace(getYValue(hoveredDate))} %
 
-    <tspan x={xScale(hoveredDate)} dx="12" dy="1.1em">in </tspan>
-    <tspan x={xScale(hoveredDate)} dx="12" dy="1.1em">100 </tspan>
+    <!-- <tspan x={xScale(hoveredDate)} dx="12" dy="1.1em"></tspan> -->
 </text>
+
+<!-- MILK PRICE TOOL TIP - TOP MARGIN -->
+<!-- <circle
+    cx={xScale(hoveredDate)}
+    cy={0}
+    r="7.5"
+    fill={color}
+    stroke="#f0f0f0"
+    pointer-events="none"
+/> -->
+
+<text
+    x={xScale(hoveredDate)}
+    dx="20"
+    y={-10}
+    pointer-events="none"
+    fill={color}
+    stroke="#f0f0f0"
+    stroke-width="5"
+    paint-order="stroke"
+>
+    {getMilkPrice(hoveredDate)}p
+    <tspan x={xScale(hoveredDate)} dx="20" dy="1.1em">per pint</tspan>
+    <tspan x={xScale(hoveredDate)} dx="20" dy="1.1em">of milk</tspan>
+</text>
+<g pointer-events="none">
+    <MilkBottle 
+        x={xScale(hoveredDate) - 20}
+        y={-20}
+        colour="blue"/>
+</g>
 
 <style>
     text {

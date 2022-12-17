@@ -43,7 +43,7 @@
   // --------------------------------------------------------------------------------------
 
   const yScale = scaleLinear()
-    .domain([0, 100]) // INPUT
+    .domain([0, 13]) // INPUT
     .range([innerHeight, 0]); // OUTPUT
 
   const minDate = new Date(xAccessor(milk_cpi[0]));
@@ -85,8 +85,17 @@
           isUnhovered={hoveredDate === maxDate}
         />
         <AxisY width={innerWidth} {yScale} />
-
+        
+        <!-- MY DATA  -->
         <Line
+          {xScale}
+          {yScale}
+          data={milk_cpi}
+          color={BIDEN_COLOR}
+          {hoveredDate}
+        />
+
+        <!-- <Line
           {xScale}
           {yScale}
           data={data.Biden}
@@ -99,7 +108,7 @@
           data={data.Trump}
           color={TRUMP_COLOR}
           {hoveredDate}
-        />
+        /> -->
 
         <HoverEvents
           width={innerWidth}
@@ -114,16 +123,16 @@
           {hoveredDate}
           {xScale}
           {yScale}
-          data={data.Biden}
+          data={milk_cpi}
           color={BIDEN_COLOR}
         />
-        <Tooltip
+        <!-- <Tooltip
           {hoveredDate}
           {xScale}
           {yScale}
           data={data.Trump}
           color={TRUMP_COLOR}
-        />
+        /> -->
       </g>
     </svg>
   </div>
