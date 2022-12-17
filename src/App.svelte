@@ -1,9 +1,9 @@
 <script>
   import data from "./data/data.json";
   // --------------------------------------------------------------------------------------
-  // Imports 
+  // Imports
   // --------------------------------------------------------------------------------------
-  
+
   // data
   import milk_cpi from "./data/milk_cpi.json";
   console.log(milk_cpi);
@@ -19,7 +19,7 @@
   import Tooltip from "./lib/Tooltip.svelte";
 
   // --------------------------------------------------------------------------------------
-  // Set up the structure of the plot 
+  // Set up the structure of the plot
   // --------------------------------------------------------------------------------------
 
   const margin = { top: 30, right: 50, bottom: 30, left: 40 };
@@ -42,10 +42,12 @@
   // Scales
   // --------------------------------------------------------------------------------------
 
+  const cpiMax = 13;
   const yScale = scaleLinear()
-    .domain([0, 13]) // INPUT
+    .domain([0, cpiMax]) // INPUT
     .range([innerHeight, 0]); // OUTPUT
 
+  // x axis max and min
   const minDate = new Date(xAccessor(milk_cpi[0]));
   const maxDate = new Date(xAccessor(milk_cpi[milk_cpi.length - 1]));
 
@@ -53,17 +55,15 @@
     .domain([minDate, maxDate]) // INPUT
     .range([0, innerWidth]); // OUTPUT
 
-  const BIDEN_COLOR = "#5768ac";
-  const TRUMP_COLOR = "#fa5a50";
-
-
+  const cpiColour = "#C94A54";
+  const milkColour = "#374E83"
 
   let hoveredDate = maxDate;
 </script>
 
 <div class="outer">
   <div class="chart-container" bind:clientWidth={width}>
-    <h1>How the forecast has changed</h1>
+    <h1>Hello</h1>
     <svg
       {width}
       {height}
@@ -71,45 +71,38 @@
       aria-describedby="chart-description"
       role="img"
     >
-      <title id="chart-title">How the forecast has changed</title>
+      <!-- <title id="chart-title">UK inflation 2020-2022</title> -->
       <desc id="chart-description"
         >A dual line chart showing Donald Trump and Joe Biden's likelihood of
         electoral victory diverging over time. At the final point, on November
         3rd, Biden has an 89 in 100 chance of winning, and Trump has 10 in 100.</desc
       >
       <g transform="translate({margin.left} {margin.top})">
+        <!-- X AXIS -->
         <AxisX
+          width={innerWidth} 
           height={innerHeight}
           {xScale}
           {hoveredDate}
           isUnhovered={hoveredDate === maxDate}
         />
-        <AxisY width={innerWidth} {yScale} />
-        
+
+        <!-- Y AXIS -->
+        <AxisY 
+          width={innerWidth} 
+          height={innerHeight}
+          {yScale}
+          {hoveredDate}/>
+
         <!-- MY DATA  -->
         <Line
           {xScale}
           {yScale}
           data={milk_cpi}
-          color={BIDEN_COLOR}
+          color={cpiColour}
           {hoveredDate}
         />
 
-        <!-- <Line
-          {xScale}
-          {yScale}
-          data={data.Biden}
-          color={BIDEN_COLOR}
-          {hoveredDate}
-        />
-        <Line
-          {xScale}
-          {yScale}
-          data={data.Trump}
-          color={TRUMP_COLOR}
-          {hoveredDate}
-        /> -->
-        
         <HoverEvents
           width={innerWidth}
           height={innerHeight}
@@ -119,23 +112,17 @@
           bind:hoveredDate
         />
 
-        <!-- only show tooltip if hovered --> 
+        <!-- only show tooltip if hovered -->
         {#if hoveredDate !== maxDate}
-        <Tooltip
-          {hoveredDate}
-          {xScale}
-          {yScale}
-          data={milk_cpi}
-          color={BIDEN_COLOR}
-        />
+          <Tooltip
+            {hoveredDate}
+            {xScale}
+            {yScale}
+            data={milk_cpi}
+            color={cpiColour}
+            secondColor={milkColour}
+          />
         {/if}
-        <!-- <Tooltip
-          {hoveredDate}
-          {xScale}
-          {yScale}
-          data={data.Trump}
-          color={TRUMP_COLOR}
-        /> -->
       </g>
     </svg>
   </div>
@@ -144,7 +131,7 @@
 <style>
   .outer {
     padding: 15px;
-    background: #f0f0f0;
+    /* background: #f0f0f0; */
     box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.15);
     border-radius: 3px;
   }

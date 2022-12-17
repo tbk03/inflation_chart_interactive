@@ -29,7 +29,7 @@
     x2={xScale(hoveredDate)}
     y1={25}
     y2={height}
-    stroke="darkgrey"
+    stroke="#666666"
     stroke-dasharray="2, 2"
     pointer-events="none"
 />

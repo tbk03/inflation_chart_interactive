@@ -7,6 +7,7 @@
     export let hoveredDate;
     export let data;
     export let color;
+    export let secondColor;
 
     const getYValue = (date) =>
         data.filter((d) => new Date(d.date) >= date)[0]?.cpi;
@@ -35,10 +36,11 @@
     y={yScale(getYValue(hoveredDate))}
     pointer-events="none"
     fill={color}
-    stroke="#f0f0f0"
-    stroke-width="5"
-    paint-order="stroke"
 >
+<!--     stroke="#f0f0f0"
+    stroke-width="5"
+    paint-order="stroke" -->
+
     {oneDecimalPlace(getYValue(hoveredDate))} %
 </text>
 
@@ -49,10 +51,7 @@
     dx="20"
     y={-10}
     pointer-events="none"
-    fill={color}
-    stroke="#f0f0f0"
-    stroke-width="5"
-    paint-order="stroke"
+    fill={secondColor}
 >
     {Math.round(getMilkPrice(hoveredDate))}p
     <tspan x={xScale(hoveredDate)} dx="20" dy="1.1em">per pint</tspan>
@@ -62,11 +61,26 @@
     <MilkBottle 
         x={xScale(hoveredDate) - 25}
         y={-25}
-        colour="blue"/>
+        colour={secondColor}/>
 </g>
 
 <style>
+
+    /* axis styling */
+    @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
+    /* set component colours*/
+    :root {
+        --greyMaxEmp: #666666;
+        --greyHighEmp: #737373;
+        --greyLowEmp: #bfbfbf;
+        --greyMinEmp: #e5e5e5;
+    }
+
     text {
+        font-family: "Lato", sans-serif;
+        font-size: 1rem;
         font-weight: 600;
     }
+
 </style>

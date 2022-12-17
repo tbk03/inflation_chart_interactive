@@ -1,5 +1,6 @@
 <script>
     export let height;
+    export let width;
     export let xScale;
     export let hoveredDate;
     export let isUnhovered;
@@ -8,34 +9,90 @@
     import { timeFormat } from "d3-time-format";
     const dateFormat = timeFormat("%b %y");
 
-    const TICK_LENGTH = 8;
+    const TICK_LENGTH = 6;
 
     $: ticks = isUnhovered ? xScale.ticks(6) : [hoveredDate];
 </script>
 
-{#each ticks as tick}
-    <line
-        x1={xScale(tick)}
-        x2={xScale(tick)}
-        y1={height}
-        y2={height + TICK_LENGTH}
-        stroke="#999"
-    />
-    <text
-        x={xScale(tick)}
-        y={height + TICK_LENGTH}
-        dy="6"
-        dominant-baseline="hanging"
-        text-anchor="middle"
-        fill="#999"
-    >
-        {dateFormat(tick)}
-    </text>
+<!-- AXIS BASELINE -->
+<line class="axis-baseline" x1={0} y1={height} x2={width} y2={height} />
+
+<!-- AXIS TICKS -->
+{#each ticks as tick, i}
+    {#if i % 2 == 0}
+        <line
+            class="major-grid"
+            x1={xScale(tick)}
+            x2={xScale(tick)}
+            y1={height}
+            y2={height + TICK_LENGTH}
+        />
+        <text
+            class = "axis-text"
+            x={xScale(tick)}
+            y={height + TICK_LENGTH}
+            dy="6"
+            dominant-baseline="hanging"
+        >
+            {dateFormat(tick)}
+        </text>
+    {/if}
+
+    {#if i % 2 != 0 && width > 600}
+        <line
+            class="minor-grid"
+            x1={xScale(tick)}
+            x2={xScale(tick)}
+            y1={height}
+            y2={height + TICK_LENGTH}
+        />
+        <text
+            class = "axis-text"
+            x={xScale(tick)}
+            y={height + TICK_LENGTH}
+            dy="6"
+            dominant-baseline="hanging"
+        >
+            {dateFormat(tick)}
+        </text>
+    {/if}
 {/each}
 
 <style>
+    /* axis styling */
+    @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
+    /* set component colours*/
+    :root {
+        --greyMaxEmp: #666666;
+        --greyHighEmp: #737373;
+        --greyLowEmp: #bfbfbf;
+        --greyMinEmp: #e5e5e5;
+    }
+
     text {
-        text-transform: uppercase;
-        font-size: 0.9rem;
+        font-family: "Lato", sans-serif;
+        font-size: 1rem;
+        text-anchor: middle;
+    }
+
+    .axis-baseline {
+        stroke: var(--greyLowEmp);
+        stroke-width: 1.5;
+    }
+
+    .major-grid{
+        stroke: var(--greyLowEmp);
+        stroke-width: 0.5;
+    }
+
+    .minor-grid{
+        stroke: var(--greyMinEmp);
+        stroke-width: 0.5;
+    }
+
+    .axis-text {
+        font-size: 1rem;
+        fill: var(--greyHighEmp);
     }
 </style>
