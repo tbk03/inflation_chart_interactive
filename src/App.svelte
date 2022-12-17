@@ -109,7 +109,7 @@
           color={TRUMP_COLOR}
           {hoveredDate}
         /> -->
-
+        
         <HoverEvents
           width={innerWidth}
           height={innerHeight}
@@ -119,6 +119,8 @@
           bind:hoveredDate
         />
 
+        <!-- only show tooltip if hovered --> 
+        {#if hoveredDate !== maxDate}
         <Tooltip
           {hoveredDate}
           {xScale}
@@ -126,6 +128,7 @@
           data={milk_cpi}
           color={BIDEN_COLOR}
         />
+        {/if}
         <!-- <Tooltip
           {hoveredDate}
           {xScale}

@@ -6,7 +6,7 @@
 
     // Format our ticks as short date strings
     import { timeFormat } from "d3-time-format";
-    const dateFormat = timeFormat("%b %e");
+    const dateFormat = timeFormat("%b %y");
 
     const TICK_LENGTH = 8;
 

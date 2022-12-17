@@ -12,7 +12,7 @@
         dominant-baseline="middle"
         fill="#999"
     >
-        {tick}
+        {tick}{#if tick == 12}%{/if}
     </text>
     <line x1="0" x2={width} y1={yScale(tick)} y2={yScale(tick)} stroke="#999" />
 {/each}

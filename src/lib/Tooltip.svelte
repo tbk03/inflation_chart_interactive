@@ -39,21 +39,10 @@
     stroke-width="5"
     paint-order="stroke"
 >
-    <!-- {getYValue(hoveredDate)} -->
     {oneDecimalPlace(getYValue(hoveredDate))} %
-
-    <!-- <tspan x={xScale(hoveredDate)} dx="12" dy="1.1em"></tspan> -->
 </text>
 
 <!-- MILK PRICE TOOL TIP - TOP MARGIN -->
-<!-- <circle
-    cx={xScale(hoveredDate)}
-    cy={0}
-    r="7.5"
-    fill={color}
-    stroke="#f0f0f0"
-    pointer-events="none"
-/> -->
 
 <text
     x={xScale(hoveredDate)}
@@ -65,14 +54,14 @@
     stroke-width="5"
     paint-order="stroke"
 >
-    {getMilkPrice(hoveredDate)}p
+    {Math.round(getMilkPrice(hoveredDate))}p
     <tspan x={xScale(hoveredDate)} dx="20" dy="1.1em">per pint</tspan>
     <tspan x={xScale(hoveredDate)} dx="20" dy="1.1em">of milk</tspan>
 </text>
 <g pointer-events="none">
     <MilkBottle 
-        x={xScale(hoveredDate) - 20}
-        y={-20}
+        x={xScale(hoveredDate) - 25}
+        y={-25}
         colour="blue"/>
 </g>
 

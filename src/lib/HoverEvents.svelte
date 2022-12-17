@@ -27,7 +27,7 @@
 <line
     x1={xScale(hoveredDate)}
     x2={xScale(hoveredDate)}
-    y1={0}
+    y1={25}
     y2={height}
     stroke="darkgrey"
     stroke-dasharray="2, 2"
