@@ -17,6 +17,7 @@
   import AxisY from "./lib/AxisY.svelte";
   import HoverEvents from "./lib/HoverEvents.svelte";
   import Tooltip from "./lib/Tooltip.svelte";
+  import Annotation from "./lib/Annotation.svelte";
 
   // --------------------------------------------------------------------------------------
   // Set up the structure of the plot
@@ -119,6 +120,11 @@
             secondColor={milkColour}
           />
         {/if}
+
+        <!-- annotation -->
+        <Annotation
+          x="100"
+          y="100"/>
       </g>
     </svg>
   </div>
