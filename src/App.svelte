@@ -22,7 +22,7 @@
   // Set up the structure of the plot
   // --------------------------------------------------------------------------------------
 
-  const margin = { top: 30, right: 50, bottom: 30, left: 40 };
+  const margin = { top: 30, right: 50, bottom: 30, left: 60 };
 
   let height = 600;
   let width = 400;
@@ -56,7 +56,7 @@
     .range([0, innerWidth]); // OUTPUT
 
   const cpiColour = "#C94A54";
-  const milkColour = "#374E83"
+  const milkColour = "#374E83";
 
   let hoveredDate = maxDate;
 </script>
@@ -78,21 +78,17 @@
         3rd, Biden has an 89 in 100 chance of winning, and Trump has 10 in 100.</desc
       >
       <g transform="translate({margin.left} {margin.top})">
+        <!-- Y AXIS -->
+        <AxisY width={innerWidth} height={innerHeight} {yScale} {hoveredDate} />
+
         <!-- X AXIS -->
         <AxisX
-          width={innerWidth} 
+          width={innerWidth}
           height={innerHeight}
           {xScale}
           {hoveredDate}
           isUnhovered={hoveredDate === maxDate}
         />
-
-        <!-- Y AXIS -->
-        <AxisY 
-          width={innerWidth} 
-          height={innerHeight}
-          {yScale}
-          {hoveredDate}/>
 
         <!-- MY DATA  -->
         <Line
@@ -131,7 +127,7 @@
 <style>
   .outer {
     padding: 15px;
-    /* background: #f0f0f0; */
+    background: #EEECED;
     box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.15);
     border-radius: 3px;
   }

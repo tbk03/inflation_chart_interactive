@@ -7,7 +7,7 @@
 
 <!-- AXIS LABEL -->
 <!-- hide if tooltip overlaps -->
-{#if hoveredDate > new Date("2020-04-01")}
+{#if hoveredDate > new Date("2020-10-01")}
     <text class="axis-label" dx="-34" font-weight="bold">Inflation rate</text>
 {/if}
 
@@ -70,22 +70,22 @@
     }
 
     .axis-text {
-        font-size: 1rem;
-        fill: var(--greyHighEmp);
+        font-size: 1.1rem;
+        fill: var(--greyMaxEmp);
     }
 
     .major-grid{
         stroke: var(--greyLowEmp);
-        stroke-width: 0.5;
+        stroke-width: 0.75;
     }
 
     .minor-grid{
-        stroke: var(--greyMinEmp);
+        stroke: var(--greyLowEmp);
         stroke-width: 0.5;
     }
 
     .axis-baseline {
-        stroke: var(--greyLowEmp);
+        stroke: var(--greyHighEmp);
         stroke-width: 1.5;
     }
 </style>

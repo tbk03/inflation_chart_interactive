@@ -36,10 +36,13 @@
     y={yScale(getYValue(hoveredDate))}
     pointer-events="none"
     fill={color}
+    font-weight="bold"
+    font-size="1.2rem"
+    stroke="#EEECED"
+    stroke-width="7"
+    paint-order="stroke"
 >
-<!--     stroke="#f0f0f0"
-    stroke-width="5"
-    paint-order="stroke" -->
+
 
     {oneDecimalPlace(getYValue(hoveredDate))} %
 </text>
@@ -79,8 +82,6 @@
 
     text {
         font-family: "Lato", sans-serif;
-        font-size: 1rem;
-        font-weight: 600;
     }
 
 </style>

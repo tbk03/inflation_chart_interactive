@@ -38,7 +38,7 @@
         </text>
     {/if}
 
-    {#if i % 2 != 0 && width > 600}
+    {#if i % 2 != 0 && width > 700}
         <line
             class="minor-grid"
             x1={xScale(tick)}
@@ -72,27 +72,26 @@
 
     text {
         font-family: "Lato", sans-serif;
-        font-size: 1rem;
         text-anchor: middle;
     }
 
     .axis-baseline {
-        stroke: var(--greyLowEmp);
+        stroke: var(--greyMaxEmp);
         stroke-width: 1.5;
     }
 
     .major-grid{
-        stroke: var(--greyLowEmp);
-        stroke-width: 0.5;
+        stroke: var(--greyHighEmp);
+        stroke-width: 1;
     }
 
     .minor-grid{
-        stroke: var(--greyMinEmp);
-        stroke-width: 0.5;
+        stroke: var(--greyLowEmp);
+        stroke-width: 0.75;
     }
 
     .axis-text {
-        font-size: 1rem;
+        font-size: 1.1rem;
         fill: var(--greyHighEmp);
     }
 </style>
