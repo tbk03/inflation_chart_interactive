@@ -1,4 +1,9 @@
 <script>
+    // ---------------------------------------------------------------------
+    // import components
+    // ---------------------------------------------------------------------
+    import { fade } from "svelte/transition";
+
     export let height;
     export let width;
     export let yScale;
@@ -8,7 +13,13 @@
 <!-- AXIS LABEL -->
 <!-- hide if tooltip overlaps -->
 {#if hoveredDate > new Date("2020-10-01")}
-    <text class="axis-label" dx="-34" font-weight="bold">Inflation rate</text>
+    <text
+        class="axis-label"
+        dx="-34"
+        font-weight="bold"
+        in:fade={{ duration: 750 }}
+        out:fade={{ duration: 750 }}>Inflation rate (%)</text
+    >
 {/if}
 
 <line class="axis-baseline" x1={0} y1={height} x2={0} y2={30} />
@@ -50,8 +61,8 @@
 
 <style>
     /* axis styling */
-       @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
-    
+    @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
     /* set component colours*/
     :root {
         --greyMaxEmp: #666666;
@@ -74,12 +85,12 @@
         fill: var(--greyMaxEmp);
     }
 
-    .major-grid{
+    .major-grid {
         stroke: var(--greyLowEmp);
         stroke-width: 0.75;
     }
 
-    .minor-grid{
+    .minor-grid {
         stroke: var(--greyLowEmp);
         stroke-width: 0.5;
     }

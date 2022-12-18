@@ -1,23 +1,24 @@
 <script>
+
+    // ---------------------------------------------------------------------
+    // import components
+    // ---------------------------------------------------------------------
+    import { fade } from "svelte/transition";
+
     export let x;
     export let y;
+    export let text;
 </script>
 
-<svg x={x} y={y} width="200" height="100">
-    <rect
-        width="200"
-        height="100"
-        fill="#DDDADB"
-        rx="15"
-    />
-    <text  dominant-baseline="middle" text-anchor="middle"
-        >
-        <tspan  dy=".6em">tspan line 1</tspan>
-        <tspan  dy="1.2em">tspan line 2</tspan>
-        <tspan  dy="1.2em">tspan line 3</tspan>
-        </text
-    >
-</svg>
+
+
+<div
+    class="annotation"
+    style="background-color: #DDDADB; top:{y}px; left:{x}px"
+    in:fade={{ duration: 750 }}
+    out:fade={{ duration: 750 }}>
+    <div>{@html text}</div>
+</div>
 
 <style>
     /* axis styling */
@@ -31,10 +32,19 @@
         --greyMinEmp: #e5e5e5;
     }
 
-    text {
+    p {
         font-family: "Lato", sans-serif;
         text-anchor: middle;
-        fill: var(--greyMaxEmp);
+        color: var(--greyHighEmp);
+    }
+
+    .annotation {
+        position: absolute;
+        padding: 20px;
+        max-width: 200px;
+        line-height: 1.15rem;
+        pointer-events: none;
+        border-radius: 25px;
     }
 
 </style>

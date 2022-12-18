@@ -64,7 +64,6 @@
 
 <div class="outer">
   <div class="chart-container" bind:clientWidth={width}>
-    <h1>Hello</h1>
     <svg
       {width}
       {height}
@@ -120,20 +119,30 @@
             secondColor={milkColour}
           />
         {/if}
-
-        <!-- annotation -->
-        <Annotation
-          x="100"
-          y="100"/>
       </g>
     </svg>
+
+    <!-- annotation -->
+    {#if hoveredDate === maxDate && width > 500}
+      <Annotation
+        x={xScale(new Date("2020-02-15")) + margin.left}
+        y={yScale(12) + margin.top}
+        text='<p>If you hover over the chart you will 
+              see the inflation rate (on the chart) and the price of a pint of milk (above the chart).</p><br/>
+              <p>The price of the pint of milk is there for a little extra context.
+                It illustrates how prices have changed for just one household staple.</p><br/>
+                The prices of different products change at different rates not neccesarily equal to the over inflation rate.
+                
+              </p>'
+      />
+    {/if}
   </div>
 </div>
 
 <style>
   .outer {
     padding: 15px;
-    background: #EEECED;
+    background: #eeeced;
     box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.15);
     border-radius: 3px;
   }
