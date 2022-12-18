@@ -139,7 +139,7 @@
               see the inflation rate (on the chart) and the price of a pint of milk (above the chart).</p><br/>
               <p>The price of the pint of milk is there for a little extra context.
                 It illustrates how prices have changed for just one household staple.</p><br/>
-                The prices of different products change at different rates not neccesarily equal to the over inflation rate.
+                The prices of different products change at different rates not neccesarily equal to the overall inflation rate.
                 
               </p>"
         />
