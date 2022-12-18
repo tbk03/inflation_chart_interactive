@@ -167,19 +167,19 @@
     border-radius: 3px;
   }
 
-  h1,
-  h2,
+  h1 {
+    font-family: "Poppins", sans-serif;
+    color: #404040;
+    font-size: 3.5rem;
+  }
+
+  /* h2,
   h3,
   p,
   li,
-  tbody {
-    font-family: "Poppins", sans-serif;
-    color: #404040;
-  }
-  h1 {
-    font-size: 3.5rem;
-  }
-  h2 {
+  tbody */
+
+  /* h2 {
     font-size: 1.8rem;
     line-height: 1.1;
     padding-bottom: 8px;
@@ -204,5 +204,5 @@
   }
   #last-element {
     padding-bottom: 200px;
-  }
+  } */
 </style>

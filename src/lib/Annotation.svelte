@@ -17,7 +17,7 @@
     style="background-color: #DDDADB; top:{y}px; left:{x}px"
     in:fade={{ duration: 750 }}
     out:fade={{ duration: 750 }}>
-    <div>{@html text}</div>
+    <p>{@html text}</p>
 </div>
 
 <style>
@@ -35,7 +35,7 @@
     p {
         font-family: "Lato", sans-serif;
         text-anchor: middle;
-        color: var(--greyHighEmp);
+        color: var(--greyMaxEmp);
     }
 
     .annotation {
