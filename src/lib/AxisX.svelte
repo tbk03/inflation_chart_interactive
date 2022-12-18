@@ -94,4 +94,11 @@
         font-size: 1.1rem;
         fill: var(--greyHighEmp);
     }
+
+    @media (max-width: 600px) {
+        .axis-text {
+        font-size: 1rem;
+    }
+}
+
 </style>
