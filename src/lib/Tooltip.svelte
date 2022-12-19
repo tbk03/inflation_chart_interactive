@@ -1,17 +1,36 @@
 <script>
-    // bespoke components
+    // ---------------------------------------------------------------------
+    // imports
+    // ---------------------------------------------------------------------
+
+    // bespoke, local components
     import MilkBottle from "./MilkBottle.svelte";
 
+    // ---------------------------------------------------------------------
+    // enable parameters to be passed into component
+    // ---------------------------------------------------------------------
+
+    // for tooltip location
     export let xScale;
     export let yScale;
     export let hoveredDate;
+
+    // data to populate tooltip values
     export let data;
+
+    // styling
     export let color;
     export let secondColor;
 
+    // ---------------------------------------------------------------------
+    // component logic
+    // ---------------------------------------------------------------------
+
+    // get inflation rate at a given date
     const getYValue = (date) =>
         data.filter((d) => new Date(d.date) >= date)[0]?.cpi;
 
+    // get milk price at a given date
     const getMilkPrice = (date) =>
         data.filter((d) => new Date(d.date) >= date)[0]?.price_pence;
 
@@ -42,8 +61,6 @@
     stroke-width="7"
     paint-order="stroke"
 >
-
-
     {oneDecimalPlace(getYValue(hoveredDate))} %
 </text>
 
@@ -61,14 +78,10 @@
     <tspan x={xScale(hoveredDate)} dx="20" dy="1.1em">of milk</tspan>
 </text>
 <g pointer-events="none">
-    <MilkBottle 
-        x={xScale(hoveredDate) - 25}
-        y={-25}
-        colour={secondColor}/>
+    <MilkBottle x={xScale(hoveredDate) - 25} y={-25} colour={secondColor} />
 </g>
 
 <style>
-
     /* axis styling */
     @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 
@@ -83,5 +96,4 @@
     text {
         font-family: "Lato", sans-serif;
     }
-
 </style>

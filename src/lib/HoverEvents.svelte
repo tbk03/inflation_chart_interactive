@@ -1,10 +1,22 @@
 <script>
+    // ---------------------------------------------------------------------
+    // enable parameters to be passed into component
+    // ---------------------------------------------------------------------
+
+    // dimensions of hover area
     export let xScale;
     export let margin;
     export let width;
     export let height;
+
+    // for locating tooltip
     export let hoveredDate;
     export let maxDate;
+
+    // ---------------------------------------------------------------------
+    // Handle hover events
+    // ---------------------------------------------------------------------
+    // hoveredDate is updated in App.svelte too through bindings
 
     const handleMousemove = function (e) {
         hoveredDate = xScale.invert(e.offsetX - margin.left);
@@ -15,6 +27,7 @@
     };
 </script>
 
+<!-- transparent hover area over chart -->
 <rect
     class="hover-listener"
     fill="transparent"
@@ -24,6 +37,7 @@
     on:mouseleave={handleMouseleave}
 />
 
+<!-- vertical line which forms part of tooltip -->
 <line
     x1={xScale(hoveredDate)}
     x2={xScale(hoveredDate)}

@@ -1,12 +1,21 @@
 <script>
     // ---------------------------------------------------------------------
-    // import components
+    // imports
     // ---------------------------------------------------------------------
+
+    // svelte libraries
     import { fade } from "svelte/transition";
 
+    // ---------------------------------------------------------------------
+    // enable parameters to be passed into component
+    // ---------------------------------------------------------------------
+
+    // dimensions of axis
     export let height;
     export let width;
     export let yScale;
+
+    // for hiding axis label is overlapping with tooltip
     export let hoveredDate;
 </script>
 
@@ -22,6 +31,7 @@
     >
 {/if}
 
+<!-- AXIS BASELINE -->
 <line class="axis-baseline" x1={0} y1={height} x2={0} y2={30} />
 
 <!-- AXIS TICKS -->
@@ -38,6 +48,7 @@
         {tick}{#if tick == 12}%{/if}
     </text>
 
+    <!-- major grid lines -->
     {#if i % 2 == 0}
         <line
             class="major-grid"
@@ -47,6 +58,8 @@
             y2={yScale(tick)}
             stroke="#999"
         />
+
+        <!-- minor gridlines -->
     {:else}
         <line
             class="minor-grid"
