@@ -1,12 +1,10 @@
 <script>
-  import data from "./data/data.json";
   // --------------------------------------------------------------------------------------
   // Imports
   // --------------------------------------------------------------------------------------
 
   // data
   import milk_cpi from "./data/milk_cpi.json";
-  console.log(milk_cpi);
 
   // libraries
   import { scaleLinear, scaleTime } from "d3-scale";
