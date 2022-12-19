@@ -40,7 +40,7 @@
   let milkPriceAccessor = (d) => d.price_pence;
 
   // --------------------------------------------------------------------------------------
-  // Scales
+  // Scales (from data values to pixels)
   // --------------------------------------------------------------------------------------
 
   const cpiMax = 13;
@@ -56,14 +56,21 @@
     .domain([minDate, maxDate]) // INPUT
     .range([0, innerWidth]); // OUTPUT
 
+  // --------------------------------------------------------------------------------------
+  // Misc plot parameters
+  // --------------------------------------------------------------------------------------
   const cpiColour = "#C94A54";
-  const milkColour = "#374E83";
+  const milkColour = "#737373";
 
+  // sets tooltip to not show by default
   let hoveredDate = maxDate;
 </script>
 
 <div class="container">
+  <!-- EXPLANATORY TEXT -->
   <h1 style="text-align:center">Inflation chart</h1>
+
+  <!-- THE CHART -->
   <div class="outer">
     <div class="chart-container" bind:clientWidth={width}>
       <svg
@@ -73,13 +80,13 @@
         aria-describedby="chart-description"
         role="img"
       >
-        <!-- <title id="chart-title">UK inflation 2020-2022</title> -->
+        <!-- for accessiblity  -->
         <desc id="chart-description"
-          >A dual line chart showing Donald Trump and Joe Biden's likelihood of
-          electoral victory diverging over time. At the final point, on November
-          3rd, Biden has an 89 in 100 chance of winning, and Trump has 10 in
-          100.</desc
+          >An interative line chart showing the inflation rate in the UK
+          (2020-2022). The price of a pint of milk is shown in the tooltip for
+          some extra real world context</desc
         >
+        <!-- move elements within chart margins -->
         <g transform="translate({margin.left} {margin.top})">
           <!-- Y AXIS -->
           <AxisY
@@ -98,7 +105,7 @@
             isUnhovered={hoveredDate === maxDate}
           />
 
-          <!-- MY DATA  -->
+          <!-- THE LINE  -->
           <Line
             {xScale}
             {yScale}
@@ -107,6 +114,7 @@
             {hoveredDate}
           />
 
+          <!-- TOOLTIP  -->
           <HoverEvents
             width={innerWidth}
             height={innerHeight}
@@ -130,7 +138,7 @@
         </g>
       </svg>
 
-      <!-- annotation -->
+      <!-- ANNOTATION -->
       {#if hoveredDate === maxDate && width > 500}
         <Annotation
           x={xScale(new Date("2020-02-15")) + margin.left}

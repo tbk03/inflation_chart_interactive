@@ -1,16 +1,35 @@
 <script>
+    // ---------------------------------------------------------------------
+    // imports
+    // ---------------------------------------------------------------------
+
+    // from libraries
+    import { timeFormat } from "d3-time-format";
+
+    // ---------------------------------------------------------------------
+    // enable parameters to be passed into component
+    // ---------------------------------------------------------------------
+
+    // dimensions of axis
     export let height;
     export let width;
     export let xScale;
+
+    // for highlighting dates when tooltip is active
     export let hoveredDate;
     export let isUnhovered;
 
+    // ---------------------------------------------------------------------
+    // Component logic
+    // ---------------------------------------------------------------------
+
     // Format our ticks as short date strings
-    import { timeFormat } from "d3-time-format";
     const dateFormat = timeFormat("%b %y");
 
-    const TICK_LENGTH = 6;
+    // set length of axis ticks (px)
+    const tickLength = 6;
 
+    // show only hovered date when tooltip is active
     $: ticks = isUnhovered ? xScale.ticks(6) : [hoveredDate];
 </script>
 
@@ -19,18 +38,19 @@
 
 <!-- AXIS TICKS -->
 {#each ticks as tick, i}
+    <!-- ticks and axis text always present -->
     {#if i % 2 == 0}
         <line
             class="major-grid"
             x1={xScale(tick)}
             x2={xScale(tick)}
             y1={height}
-            y2={height + TICK_LENGTH}
+            y2={height + tickLength}
         />
         <text
-            class = "axis-text"
+            class="axis-text"
             x={xScale(tick)}
-            y={height + TICK_LENGTH}
+            y={height + tickLength}
             dy="6"
             dominant-baseline="hanging"
         >
@@ -38,18 +58,19 @@
         </text>
     {/if}
 
+    <!-- ticks and axis text only present on wider screens -->
     {#if i % 2 != 0 && width > 700}
         <line
             class="minor-grid"
             x1={xScale(tick)}
             x2={xScale(tick)}
             y1={height}
-            y2={height + TICK_LENGTH}
+            y2={height + tickLength}
         />
         <text
-            class = "axis-text"
+            class="axis-text"
             x={xScale(tick)}
-            y={height + TICK_LENGTH}
+            y={height + tickLength}
             dy="6"
             dominant-baseline="hanging"
         >
@@ -80,12 +101,12 @@
         stroke-width: 1.5;
     }
 
-    .major-grid{
+    .major-grid {
         stroke: var(--greyHighEmp);
         stroke-width: 1;
     }
 
-    .minor-grid{
+    .minor-grid {
         stroke: var(--greyLowEmp);
         stroke-width: 0.75;
     }
@@ -95,10 +116,10 @@
         fill: var(--greyHighEmp);
     }
 
+    /* reduce axis text size on mobiles */
     @media (max-width: 600px) {
         .axis-text {
-        font-size: 1rem;
+            font-size: 1rem;
+        }
     }
-}
-
 </style>

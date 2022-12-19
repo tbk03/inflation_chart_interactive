@@ -5,9 +5,17 @@
     // ---------------------------------------------------------------------
     import { fade } from "svelte/transition";
 
+    // ---------------------------------------------------------------------
+    // enable parameters to be passed into component
+    // ---------------------------------------------------------------------
+
+    // annotation positioning
     export let x;
     export let y;
+
+    // annotation content
     export let text;
+
 </script>
 
 
