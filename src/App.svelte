@@ -66,7 +66,32 @@
 
 <div class="container">
   <!-- EXPLANATORY TEXT -->
-  <h1 style="text-align:center">Inflation chart</h1>
+  <h1 style="text-align:center">UK Inflation and the Price of Milk</h1>
+  <p><b>By Chris Martin</b></p>
+  <p>
+    This chart, and associated text, was produced as part of a personal project
+    completed in 2022. In the project I explored and developed novel ways to
+    visualise data on some of the alarming economic trends in the UK.
+  </p>
+  <p>
+    In this interactive chart I wanted to help viewers make connections between
+    the rising (but fairly abstract) rate of inflation, and some real world
+    impacts. The chart is intended to be viewed and explored by a general
+    audience. People without a particular interest or background in finance or
+    economics.
+  </p>
+  <p>
+    I started by producing hand-drawn sketches of chart ideas. Having settled on
+    a core idea, I developed the chart using web technologies including
+    Javascript, html, css, D3 and Svelte . Throughout the design and development
+    process I tested ideas with members of the target audience.
+  </p>
+  <p>
+    The finished chart and text allow the viewer to explore the increases in
+    inflation over the last two years. As they explore, the viewer can put the
+    inflation rate in context as they also notice how the price of a household
+    stable (milk) has changed too.
+  </p>
 
   <!-- THE CHART -->
   <div class="outer">
@@ -153,6 +178,13 @@
     </div>
   </div>
 </div>
+<p id="last-element" style="text-align:right;">
+  <b>Sources:</b>
+  <a
+    href="https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/d7g7/mm23"
+    >CPI inflation rate;</a
+  > <a href="https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/cznt/mm23">Milk prices</a>
+</p>
 
 <style>
   @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
@@ -171,12 +203,32 @@
     background: #eeeced;
     box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.15);
     border-radius: 3px;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
   }
 
   h1 {
     font-family: "Poppins", sans-serif;
     color: #404040;
-    font-size: 3.5rem;
+    font-size: 3rem;
+    padding-bottom: 3rem;
+    padding-top: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  p {
+    font-family: "Poppins", sans-serif;
+    color: #404040;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    padding-left: 6%;
+    padding-right: 6%;
+    line-height: 1.3rem;
+  }
+
+  #last-element {
+    padding-bottom: 200px;
   }
 
   /* test branch protection */
