@@ -69,7 +69,7 @@
   <h1 style="text-align:center">UK Inflation and the Price of Milk</h1>
   <p class="author"><b>By Chris Martin</b></p>
   <p>
-    This chart, and associated text, was produced as part of a personal project
+    This interactive chart was produced as part of a personal project
     completed in 2022. In the project I explored and developed novel ways to
     visualise data on some of the alarming economic trends in the UK.
   </p>
