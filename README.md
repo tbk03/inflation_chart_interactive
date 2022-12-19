@@ -3,13 +3,13 @@ Chris Martin
 
 This is an interative chart showing UK inflation rates (2020-2022). You can see the chart in action [here](https://tbk03.github.io/inflation_chart_interactive/).  
 
-The code here adapts, and develops on, Connor Rothchild's [Svelte + D3 chart template] (https://github.com/connorrothschild/svelte-d3-iib-workshop).
+The code here adapts, and develops on, Connor Rothchild's [Svelte + D3 chart template](https://github.com/connorrothschild/svelte-d3-iib-workshop).
 
 ## Repo structure
 
-`/src/App.svelte`: The main page which includes the chart.
-`/src/lib/*`: The components used in the chart (axis, tooltips etc.).
-`/src/data/milk_cpi.json`: The data shown in the chart.
+* `/src/App.svelte`: The main page which includes the chart.
+* `/src/lib/*`: The components used in the chart (axis, tooltips etc.).
+* `/src/data/milk_cpi.json`: The data shown in the chart.
 
 ## Running the code
 
