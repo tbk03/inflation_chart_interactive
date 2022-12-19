@@ -67,7 +67,7 @@
 <div class="container">
   <!-- EXPLANATORY TEXT -->
   <h1 style="text-align:center">UK Inflation and the Price of Milk</h1>
-  <p><b>By Chris Martin</b></p>
+  <p class="author"><b>By Chris Martin</b></p>
   <p>
     This chart, and associated text, was produced as part of a personal project
     completed in 2022. In the project I explored and developed novel ways to
@@ -176,18 +176,25 @@
         />
       {/if}
     </div>
+    <br/><br/>
+    <p class="sources" style="text-align:right;">
+      <b>Data sources:</b>
+      <a
+        href="https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/d7g7/mm23"
+        >CPI inflation rate,</a
+      >
+      <a
+        href="https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/cznt/mm23"
+        >Milk prices.</a
+      >
+    </p>
   </div>
+  <p id="last-element" />
 </div>
-<p id="last-element" style="text-align:right;">
-  <b>Sources:</b>
-  <a
-    href="https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/d7g7/mm23"
-    >CPI inflation rate;</a
-  > <a href="https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/cznt/mm23">Milk prices</a>
-</p>
 
 <style>
-  @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Poppins:b&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Lato:b&display=swap");
 
   .container {
     max-width: 900px;
@@ -213,7 +220,7 @@
     font-size: 3rem;
     padding-bottom: 3rem;
     padding-top: 3rem;
-    font-weight: bold;
+    font-weight: bold !important;
     text-transform: uppercase;
   }
 
@@ -229,6 +236,19 @@
 
   #last-element {
     padding-bottom: 200px;
+  }
+
+  b {
+    font-weight: bold !important;
+  }
+
+  * {
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .sources {
+    font-family: "Lato", sans-serif;
+    font-size: 1rem;
   }
 
   /* test branch protection */

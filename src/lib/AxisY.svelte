@@ -72,9 +72,11 @@
     {/if}
 {/each}
 
+
+
 <style>
     /* axis styling */
-    @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
 
     /* set component colours*/
     :root {

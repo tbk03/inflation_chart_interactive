@@ -55,7 +55,7 @@
     y={yScale(getYValue(hoveredDate))}
     pointer-events="none"
     fill={color}
-    font-weight="bold"
+    font-weight="900"
     font-size="1.2rem"
     stroke="#EEECED"
     stroke-width="7"
@@ -83,7 +83,7 @@
 
 <style>
     /* axis styling */
-    @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
 
     /* set component colours*/
     :root {
