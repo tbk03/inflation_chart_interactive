@@ -1,15 +1,24 @@
-# IIB Workshop: Svelte + D3
+# An interactive chart showing UK inflation rates (2020-2022): Svelte + D3
+Chris Martin
 
-This is a recreation of a dual line chart found in FiveThirtyEight's [2020 Election Forecast](https://projects.fivethirtyeight.com/2020-election-forecast/).
+This is an interative chart showing UK inflation rates (2020-2022). You can see the chart in action [here](https://tbk03.github.io/inflation_chart_interactive/).  
 
-## Getting started
+The code here adapts, and develops on, Connor Rothchild's [Svelte + D3 chart template] (https://github.com/connorrothschild/svelte-d3-iib-workshop).
 
-### 1. Clone the template
+## Repo structure
+
+`/src/App.svelte`: The main page which includes the chart.
+`/src/lib/*`: The components used in the chart (axis, tooltips etc.).
+`/src/data/milk_cpi.json`: The data shown in the chart.
+
+## Running the code
+
+### 1. Clone the repo
 
 In your terminal, run the following command:
 
 ```bash
-git clone https://github.com/connorrothschild/svelte-d3-iib-workshop.git
+git clone https://github.com/tbk03/inflation_chart_interactive.git
 ```
 
 Then, `cd` into that directory.
