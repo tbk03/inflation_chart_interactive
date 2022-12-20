@@ -17,10 +17,10 @@
     economics.`,f=W(),l=Z("p"),l.textContent=`I started by producing hand-drawn sketches of chart ideas. Having settled on
     a core idea, I developed the chart using web technologies including
     Javascript, html, css, D3 and Svelte . Throughout the design and development
-    process I tested ideas with members of the target audience.`,o=W(),_=Z("p"),_.textContent=`The finished chart and text allow the viewer to explore the increases in
+    process I tested ideas with members of the target audience.`,o=W(),_=Z("p"),_.textContent=`The finished chart allow the viewer to explore the increases in
     inflation over the last two years. As they explore, the viewer can put the
     inflation rate in context as they also notice how the price of a household
-    stable (milk) has changed too.`,m=W(),b=Z("div"),k=Z("div"),w=I("svg"),L=I("desc"),P=J(`An interative line chart showing the inflation rate in the UK
+    staple (milk) has changed too.`,m=W(),b=Z("div"),k=Z("div"),w=I("svg"),L=I("desc"),P=J(`An interative line chart showing the inflation rate in the UK
           (2020-2022). The price of a pint of milk is shown in the tooltip for
           some extra real world context`),S=I("g"),De(F.$$.fragment),De(Y.$$.fragment),De(y.$$.fragment),De(H.$$.fragment),R&&R.c(),ne=W(),O&&O.c(),v=W(),g=Z("br"),T=Z("br"),Q=W(),ue=Z("p"),ue.innerHTML=`<b class="svelte-ndobbg">Data sources:</b> 
       <a href="https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/d7g7/mm23" class="svelte-ndobbg">CPI inflation rate,</a> 
