@@ -207,7 +207,7 @@
 
   .outer {
     padding: 15px;
-    background: #eeeced;
+    background: #E2E4E2;
     box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.15);
     border-radius: 3px;
     margin-top: 3rem;
