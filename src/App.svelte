@@ -87,10 +87,10 @@
     process I tested ideas with members of the target audience.
   </p>
   <p>
-    The finished chart and text allow the viewer to explore the increases in
+    The finished chart allow the viewer to explore the increases in
     inflation over the last two years. As they explore, the viewer can put the
     inflation rate in context as they also notice how the price of a household
-    stable (milk) has changed too.
+    staple (milk) has changed too.
   </p>
 
   <!-- THE CHART -->
